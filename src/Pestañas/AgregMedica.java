@@ -22,6 +22,8 @@ public class AgregMedica {
 	private JButton btnAgregar;
 	private JButton btnRegresar;
 	private JTextField txtTipo;
+	private JLabel lblProvedor;
+	private JTextField txtProvedor;
 
 	/**
 	 * Launch the application.
@@ -62,12 +64,12 @@ public class AgregMedica {
 		
 		lblStocks = new JLabel("Stocks ");
 		lblStocks.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblStocks.setBounds(10, 83, 95, 13);
+		lblStocks.setBounds(10, 112, 95, 13);
 		frmAgregarM.getContentPane().add(lblStocks);
 		
 		lblPrecio = new JLabel("Precio");
 		lblPrecio.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblPrecio.setBounds(10, 117, 95, 13);
+		lblPrecio.setBounds(10, 146, 95, 13);
 		frmAgregarM.getContentPane().add(lblPrecio);
 		
 		txtMedicamento = new JTextField();
@@ -77,16 +79,16 @@ public class AgregMedica {
 		
 		txtStoks = new JTextField();
 		txtStoks.setColumns(10);
-		txtStoks.setBounds(115, 81, 116, 19);
+		txtStoks.setBounds(115, 110, 116, 19);
 		frmAgregarM.getContentPane().add(txtStoks);
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setColumns(10);
-		txtPrecio.setBounds(115, 115, 116, 19);
+		txtPrecio.setBounds(115, 144, 116, 19);
 		frmAgregarM.getContentPane().add(txtPrecio);
 		
 		btnAgregar = new JButton("Agregar");
-		btnAgregar.setBounds(10, 158, 85, 21);
+		btnAgregar.setBounds(10, 174, 85, 21);
 		frmAgregarM.getContentPane().add(btnAgregar);
 		
 		btnRegresar = new JButton("Regresar");
@@ -95,17 +97,27 @@ public class AgregMedica {
 				frmAgregarM.dispose();
 			}
 		});
-		btnRegresar.setBounds(115, 158, 85, 21);
+		btnRegresar.setBounds(120, 174, 85, 21);
 		frmAgregarM.getContentPane().add(btnRegresar);
 		
 		JLabel lblTipo = new JLabel("Tipo");
 		lblTipo.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblTipo.setBounds(10, 49, 95, 13);
+		lblTipo.setBounds(10, 78, 95, 13);
 		frmAgregarM.getContentPane().add(lblTipo);
 		
 		txtTipo = new JTextField();
 		txtTipo.setColumns(10);
-		txtTipo.setBounds(115, 53, 116, 19);
+		txtTipo.setBounds(115, 82, 116, 19);
 		frmAgregarM.getContentPane().add(txtTipo);
+		
+		lblProvedor = new JLabel("Provedor");
+		lblProvedor.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblProvedor.setBounds(10, 54, 95, 13);
+		frmAgregarM.getContentPane().add(lblProvedor);
+		
+		txtProvedor = new JTextField();
+		txtProvedor.setColumns(10);
+		txtProvedor.setBounds(115, 54, 116, 19);
+		frmAgregarM.getContentPane().add(txtProvedor);
 	}
 }
