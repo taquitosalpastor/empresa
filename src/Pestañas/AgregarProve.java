@@ -9,6 +9,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class AgregarProve {
 
@@ -16,11 +19,10 @@ public class AgregarProve {
 	private JTextField txtNomEmpresa;
 	private JTextField txtNomLab;
 	private JTextField txtNomProve;
-	private JLabel lblNombreDelProvedor;
-	private JLabel lblNombreDelLaboratorio;
-	private JLabel lblNewLabel;
-	private JLabel lblNumeroDelProvedor;
 	private JTextField textField;
+	private JLabel fondo;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_2;
 
 	/**
 	 * Launch the application.
@@ -50,61 +52,61 @@ public class AgregarProve {
 	 */
 	private void initialize() {
 		frmProvedores = new JFrame();
-		frmProvedores.setBounds(100, 100, 310, 274);
+		frmProvedores.setBounds(100, 100, 455, 486);
 		frmProvedores.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmProvedores.getContentPane().setLayout(null);
-		
-		lblNewLabel = new JLabel("Nombre de la Empresa");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(10, 34, 133, 13);
-		frmProvedores.getContentPane().add(lblNewLabel);
-		
-		lblNombreDelLaboratorio = new JLabel("Nombre del laboratorio");
-		lblNombreDelLaboratorio.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNombreDelLaboratorio.setBounds(10, 65, 133, 13);
-		frmProvedores.getContentPane().add(lblNombreDelLaboratorio);
-		
-		lblNombreDelProvedor = new JLabel("Nombre del Provedor");
-		lblNombreDelProvedor.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNombreDelProvedor.setBounds(10, 95, 133, 13);
-		frmProvedores.getContentPane().add(lblNombreDelProvedor);
+		frmProvedores.setLocationRelativeTo(null);
 		
 		txtNomEmpresa = new JTextField();
-		txtNomEmpresa.setBounds(153, 31, 133, 19);
+		txtNomEmpresa.setBorder(null);
+		txtNomEmpresa.setBounds(254, 188, 133, 19);
 		frmProvedores.getContentPane().add(txtNomEmpresa);
 		txtNomEmpresa.setColumns(10);
 		
 		txtNomLab = new JTextField();
+		txtNomLab.setBorder(null);
 		txtNomLab.setColumns(10);
-		txtNomLab.setBounds(153, 61, 133, 19);
+		txtNomLab.setBounds(254, 231, 133, 19);
 		frmProvedores.getContentPane().add(txtNomLab);
 		
 		txtNomProve = new JTextField();
+		txtNomProve.setBorder(null);
 		txtNomProve.setColumns(10);
-		txtNomProve.setBounds(153, 91, 133, 19);
+		txtNomProve.setBounds(254, 274, 133, 19);
 		frmProvedores.getContentPane().add(txtNomProve);
 		
-		JButton btnNewButton = new JButton("Agregar");
-		btnNewButton.setBounds(10, 173, 101, 32);
-		frmProvedores.getContentPane().add(btnNewButton);
+		textField = new JTextField();
+		textField.setBorder(null);
+		textField.setColumns(10);
+		textField.setBounds(254, 315, 133, 19);
+		frmProvedores.getContentPane().add(textField);
 		
-		JButton btnRegresar = new JButton("Regresar");
-		btnRegresar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmProvedores.dispose();
+		fondo = new JLabel("");
+		fondo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		btnRegresar.setBounds(153, 173, 106, 32);
-		frmProvedores.getContentPane().add(btnRegresar);
+		fondo.setIcon(new ImageIcon(AgregarProve.class.getResource("/pixel/provedores (1).png")));
+		fondo.setBounds(0, -20, 503, 493);
+		frmProvedores.getContentPane().add(fondo);
 		
-		lblNumeroDelProvedor = new JLabel("Numero del Provedor");
-		lblNumeroDelProvedor.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNumeroDelProvedor.setBounds(10, 124, 133, 13);
-		frmProvedores.getContentPane().add(lblNumeroDelProvedor);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		lblNewLabel.setBounds(53, 368, 118, 34);
+		frmProvedores.getContentPane().add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(153, 120, 133, 19);
-		frmProvedores.getContentPane().add(textField);
+		lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		lblNewLabel_2.setBounds(249, 368, 133, 34);
+		frmProvedores.getContentPane().add(lblNewLabel_2);
 	}
 }

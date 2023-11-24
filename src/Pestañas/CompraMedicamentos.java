@@ -34,6 +34,7 @@ public class CompraMedicamentos {
 	private JLabel lblPrecioP;
 	private JLabel lblBuscar;
 	private JComboBox comboBoxCatalogo;
+	private JLabel lblNewLabel_1;
 
 	
 	public static void main(String[] args) {
@@ -60,7 +61,7 @@ public class CompraMedicamentos {
 		frmMedicamentos.getContentPane().setBackground(new Color(0, 255, 255));
 		frmMedicamentos.getContentPane().setLayout(null);
 		
-		frmMedicamentos.setUndecorated(true);
+		frmMedicamentos.setUndecorated(false);
 		
 		btnRegresar = new JButton("Regresar");
 		btnRegresar.addActionListener(new ActionListener() {
@@ -156,6 +157,11 @@ public class CompraMedicamentos {
 		comboBoxCatalogo.setToolTipText("");
 		comboBoxCatalogo.setBounds(233, 16, 113, 21);
 		frmMedicamentos.getContentPane().add(comboBoxCatalogo);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(CompraMedicamentos.class.getResource("/Imag/Diseño sin título.png")));
+		lblNewLabel_1.setBounds(-95, -15, 567, 341);
+		frmMedicamentos.getContentPane().add(lblNewLabel_1);
 		frmMedicamentos.setTitle("Medicamentos");
 		frmMedicamentos.setBounds(100, 100, 453, 352);
 		frmMedicamentos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

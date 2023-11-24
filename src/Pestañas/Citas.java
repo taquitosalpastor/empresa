@@ -22,15 +22,15 @@ import java.awt.event.MouseEvent;
 public class Citas {
 
 	public JFrame frameCitas;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField txtCliente;
+	private JTextField txtDireccion;
+	private JTextField txtSexo;
+	private JTextField txtTelefono;
+	private JTextField txtFecha;
 	private JLabel lblHora;
-	private JLabel lblGuardar;
+	private JTextField txtSintomas;
+	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
-	private JComboBox comboBox;
 
 	/**
 	 * Launch the application.
@@ -61,96 +61,74 @@ public class Citas {
 	 */
 	private void initialize() {
 		frameCitas = new JFrame();
-		frameCitas.setBounds(100, 100, 498, 294);
+		frameCitas.setBounds(100, 100, 671, 677);
 		frameCitas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameCitas.setLocationRelativeTo(null);
 		frameCitas.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Nombre del Cliente:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel.setBounds(24, 44, 127, 14);
-		frameCitas.getContentPane().add(lblNewLabel);
+		txtCliente = new JTextField();
+		txtCliente.setBorder(null);
+		txtCliente.setBounds(177, 218, 434, 39);
+		frameCitas.getContentPane().add(txtCliente);
+		txtCliente.setColumns(10);
 		
-		textField = new JTextField();
-		textField.setBounds(154, 38, 112, 20);
-		frameCitas.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblSexo = new JLabel("Sexo:");
-		lblSexo.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblSexo.setBounds(276, 44, 47, 14);
-		frameCitas.getContentPane().add(lblSexo);
-		
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Masculino", "Femenino"}));
-		comboBox.setBounds(337, 41, 79, 22);
-		frameCitas.getContentPane().add(comboBox);
-		
-		JLabel lblDiaDeConsulta = new JLabel("Fecha:");
-		lblDiaDeConsulta.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblDiaDeConsulta.setBounds(24, 69, 127, 14);
-		frameCitas.getContentPane().add(lblDiaDeConsulta);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(154, 63, 112, 20);
-		frameCitas.getContentPane().add(textField_1);
-		
-		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblTelefono.setBounds(272, 69, 70, 14);
-		frameCitas.getContentPane().add(lblTelefono);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(337, 67, 112, 20);
-		frameCitas.getContentPane().add(textField_2);
-		
-		JLabel lblDireccin = new JLabel("Dirección:");
-		lblDireccin.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblDireccin.setBounds(24, 100, 100, 14);
-		frameCitas.getContentPane().add(lblDireccin);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(154, 98, 112, 20);
-		frameCitas.getContentPane().add(textField_3);
-		textField_3.setColumns(10);
-		
-		JLabel lblSistomas = new JLabel("Sistomas:");
-		lblSistomas.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblSistomas.setBounds(272, 100, 79, 14);
-		frameCitas.getContentPane().add(lblSistomas);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(337, 98, 112, 20);
-		frameCitas.getContentPane().add(textField_4);
+		txtSintomas = new JTextField();
+		txtSintomas.setBorder(null);
+		txtSintomas.setBounds(469, 394, 142, 29);
+		frameCitas.getContentPane().add(txtSintomas);
+		txtSintomas.setColumns(10);
 		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frameCitas.dispose();
 			}
 		});
-		lblNewLabel_1.setIcon(new ImageIcon(Citas.class.getResource("/Imag/volver.png")));
-		lblNewLabel_1.setBounds(440, 198, 32, 40);
+		lblNewLabel_1.setBounds(398, 453, 174, 59);
 		frameCitas.getContentPane().add(lblNewLabel_1);
+		
+		txtDireccion = new JTextField();
+		txtDireccion.setBorder(null);
+		txtDireccion.setColumns(10);
+		txtDireccion.setBounds(177, 276, 434, 39);
+		frameCitas.getContentPane().add(txtDireccion);
+		
+		txtSexo = new JTextField();
+		txtSexo.setBorder(null);
+		txtSexo.setColumns(10);
+		txtSexo.setBounds(469, 335, 142, 39);
+		frameCitas.getContentPane().add(txtSexo);
+		
+		txtTelefono = new JTextField();
+		txtTelefono.setBorder(null);
+		txtTelefono.setBounds(177, 335, 144, 39);
+		frameCitas.getContentPane().add(txtTelefono);
+		txtTelefono.setColumns(10);
+		
+		txtFecha = new JTextField();
+		txtFecha.setBorder(null);
+		txtFecha.setColumns(10);
+		txtFecha.setBounds(177, 384, 142, 39);
+		frameCitas.getContentPane().add(txtFecha);
 		
 		lblHora = new JLabel("");
 		lblHora.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblHora.setBounds(24, 11, 127, 22);
 		frameCitas.getContentPane().add(lblHora);
 		
-		lblGuardar = new JLabel("");
-		lblGuardar.addMouseListener(new MouseAdapter() {
+		JLabel Fonto = new JLabel("");
+		Fonto.setIcon(new ImageIcon(Citas.class.getResource("/pixel/Documento A4 Hoja De Pedidos Org.png")));
+		Fonto.setBounds(-23, -10, 682, 696);
+		frameCitas.getContentPane().add(Fonto);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		lblGuardar.setIcon(new ImageIcon(Citas.class.getResource("/Imag/disquete.png")));
-		lblGuardar.setBounds(369, 198, 47, 40);
-		frameCitas.getContentPane().add(lblGuardar);
+		lblNewLabel.setBounds(114, 458, 159, 54);
+		frameCitas.getContentPane().add(lblNewLabel);
 		
 	}
 	 public void HoraMX() {

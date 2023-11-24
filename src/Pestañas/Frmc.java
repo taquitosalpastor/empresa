@@ -27,7 +27,6 @@ import java.awt.event.MouseEvent;
 	public class Frmc {
 
 	    public JFrame frmFarmaciaUsuario;
-	    private JLabel lblNewLabel;
 	    private JLabel lblCliente;
 	    private JButton btnComprar;
 	    private JButton btnNewButton;
@@ -47,8 +46,9 @@ import java.awt.event.MouseEvent;
 	    private JLabel lblSugerenciasS;
 	    private JLabel lblAgregarU;
 	    private JLabel lblAdministrarM;
-	    private JLabel lblNewLabel_3;
 	    private JLabel lblNewLabel_4;
+	    private JLabel label;
+	    private JLabel lblNewLabel;
 
 	    public static void main(String[] args) {
 	        EventQueue.invokeLater(new Runnable() {
@@ -74,23 +74,19 @@ import java.awt.event.MouseEvent;
 	        frmFarmaciaUsuario.setBackground(new Color(128, 255, 255));
 	        frmFarmaciaUsuario.getContentPane().setBackground(new Color(128, 255, 255));
 	        frmFarmaciaUsuario.setTitle("Farmacia Usuario");
-	        frmFarmaciaUsuario.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	        frmFarmaciaUsuario.setBounds(700, 1200, 13073, 1992);
+	        
+	        frmFarmaciaUsuario.setBounds(700, 120, 1197, 728);
 	        frmFarmaciaUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frmFarmaciaUsuario.getContentPane().setLayout(null);
 	        frmFarmaciaUsuario.setLocationRelativeTo(null);
-
-	        lblNewLabel = new JLabel("Farmacia Full House");
-	        lblNewLabel.setFont(new Font("Perpetua Titling MT", Font.BOLD, 24));
-	        lblNewLabel.setBounds(498, 176, 320, 61);
-	        frmFarmaciaUsuario.getContentPane().add(lblNewLabel);
 			
-			JLabel lblNewLabel_2 = new JLabel("DevProg Innovations");
-			lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-			lblNewLabel_2.setBounds(13, 73, 142, 21);
-			frmFarmaciaUsuario.getContentPane().add(lblNewLabel_2);
+			lblNewLabel = new JLabel("");
+			lblNewLabel.setIcon(new ImageIcon(Frmc.class.getResource("/pixel/Farmacia full house.png")));
+			lblNewLabel.setBounds(0, -25, 1370, 736);
+			frmFarmaciaUsuario.getContentPane().add(lblNewLabel);
 			
 			JMenuBar menuBar = new JMenuBar();
+			menuBar.setOpaque(false);
 			menuBar.setBackground(new Color(255, 217, 217));
 			menuBar.setBounds(0, 0, 1370, 25);
 			frmFarmaciaUsuario.getContentPane().add(menuBar);
@@ -178,8 +174,12 @@ import java.awt.event.MouseEvent;
 			lblAdministrarM.setIcon(new ImageIcon(Frmc.class.getResource("/Imag/medi.png")));
 			mnNewMenuAdminsitrador.add(lblAdministrarM);
 			
+			label = new JLabel("New label");
+			label.setBounds(0, 0, 45, 13);
+			frmFarmaciaUsuario.getContentPane().add(label);
+			
 			JPanel panel_1 = new JPanel();
-			panel_1.setBounds(0, 24, 1370, 50);
+			panel_1.setBounds(0, 35, 1370, 50);
 			frmFarmaciaUsuario.getContentPane().add(panel_1);
 			panel_1.setLayout(null);
 			
@@ -195,27 +195,6 @@ import java.awt.event.MouseEvent;
 							        panel_1.add(lblCliente);
 							        lblCliente.setBorder(new LineBorder(new Color(0, 255, 255), 3, true));
 							        lblCliente.setFont(new Font("Serif", Font.BOLD, 14));
-							        
-							        	        btnComprar = new JButton("Comprar Medicamento");
-							        	        btnComprar.setBounds(0, 0, 145, 50);
-							        	        panel_1.add(btnComprar);
-							        	        btnComprar.addActionListener(new ActionListener() {
-							        	        	public void actionPerformed(ActionEvent e) {
-							        	        		CompraMedicamentos CM=new CompraMedicamentos();
-							        	        		CM.frmMedicamentos.setVisible(true);
-							        	        	}
-							        	        });
-							        	        btnComprar.setBorder(null);
-							        	        btnComprar.setVerticalAlignment(SwingConstants.BOTTOM);
-							        	        btnComprar.setRolloverIcon(new ImageIcon(Frmc.class.getResource("/Imag/medicamento (1).png")));
-							        	        btnComprar.setPressedIcon(new ImageIcon(Frmc.class.getResource("/Imag/medicamento (2).png")));
-							        	        btnComprar.setVerticalTextPosition(SwingConstants.BOTTOM);
-							        	        btnComprar.setFont(new Font("Tahoma", Font.BOLD, 10));
-							        	        btnComprar.setBackground(new Color(255, 255, 255));
-							        	        btnComprar.setForeground(new Color(0, 0, 0));
-							        	        btnComprar.setHorizontalTextPosition(SwingConstants.CENTER);
-							        	        btnComprar.setContentAreaFilled(false);
-							        	        btnComprar.setIcon(new ImageIcon(Frmc.class.getResource("/Imag/medicamento (2).png")));
 							        	        
 							        	        	        btnNewButton = new JButton("Agendar Cita");
 							        	        	        btnNewButton.addActionListener(new ActionListener() {
@@ -236,25 +215,27 @@ import java.awt.event.MouseEvent;
 							        	        	        btnNewButton.setVerticalAlignment(SwingConstants.BOTTOM);
 							        	        	        btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 							        	        	        btnNewButton.setIcon(new ImageIcon(Frmc.class.getResource("/Imag/calendario (1).png")));
-							        
-							        JLabel lblNewLabel_1 = new JLabel("");
-							        lblNewLabel_1.setIcon(new ImageIcon(Frmc.class.getResource("/Imag/LogFar.png")));
-							        lblNewLabel_1.setBounds(433, 204, 409, 442);
-							        frmFarmaciaUsuario.getContentPane().add(lblNewLabel_1);
-							        
-							        JPanel panel = new JPanel();
-							        panel.setBounds(0, 666, 1370, 44);
-							        frmFarmaciaUsuario.getContentPane().add(panel);
-							        panel.setLayout(null);
-							        
-							        lblNewLabel_3 = new JLabel("Guia Usuario");
-							        lblNewLabel_3.setVerticalTextPosition(SwingConstants.BOTTOM);
-							        lblNewLabel_3.setHorizontalTextPosition(SwingConstants.CENTER);
-							        lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-							        lblNewLabel_3.setIcon(new ImageIcon(Frmc.class.getResource("/Imag/instrucciones.png")));
-							        lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
-							        lblNewLabel_3.setBounds(10, 0, 82, 44);
-							        panel.add(lblNewLabel_3);
+							        	        	        
+							        	        	        	        btnComprar = new JButton("Comprar Medicamento");
+							        	        	        	        btnComprar.setBounds(10, 0, 145, 50);
+							        	        	        	        panel_1.add(btnComprar);
+							        	        	        	        btnComprar.addActionListener(new ActionListener() {
+							        	        	        	        	public void actionPerformed(ActionEvent e) {
+							        	        	        	        		CompraMedicamentos CM=new CompraMedicamentos();
+							        	        	        	        		CM.frmMedicamentos.setVisible(true);
+							        	        	        	        	}
+							        	        	        	        });
+							        	        	        	        btnComprar.setBorder(null);
+							        	        	        	        btnComprar.setVerticalAlignment(SwingConstants.BOTTOM);
+							        	        	        	        btnComprar.setRolloverIcon(new ImageIcon(Frmc.class.getResource("/Imag/medicamento (1).png")));
+							        	        	        	        btnComprar.setPressedIcon(new ImageIcon(Frmc.class.getResource("/Imag/medicamento (2).png")));
+							        	        	        	        btnComprar.setVerticalTextPosition(SwingConstants.BOTTOM);
+							        	        	        	        btnComprar.setFont(new Font("Tahoma", Font.BOLD, 10));
+							        	        	        	        btnComprar.setBackground(new Color(255, 255, 255));
+							        	        	        	        btnComprar.setForeground(new Color(0, 0, 0));
+							        	        	        	        btnComprar.setHorizontalTextPosition(SwingConstants.CENTER);
+							        	        	        	        btnComprar.setContentAreaFilled(false);
+							        	        	        	        btnComprar.setIcon(new ImageIcon(Frmc.class.getResource("/Imag/medicamento (2).png")));
 
 			
 			
