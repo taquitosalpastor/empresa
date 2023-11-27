@@ -4,20 +4,32 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.digest.MessageDigestAlgorithms;
+
+import ClasesP.Usuario;
+
+
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.awt.Toolkit;
 
 public class Log {
 
-	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	public JFrame frame;
+	private JTextField txtCorreo;
+	private JTextField txtContraseña;
+	private JLabel lblLogin;
 
 	/**
 	 * Launch the application.
@@ -53,33 +65,48 @@ public class Log {
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
 		
-		textField_1 = new JTextField();
-		textField_1.setBorder(null);
-		textField_1.setBounds(62, 335, 263, 34);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		txtContraseña = new JTextField();
+		txtContraseña.setBorder(null);
+		txtContraseña.setBounds(62, 335, 263, 34);
+		frame.getContentPane().add(txtContraseña);
+		txtContraseña.setColumns(10);
 		
-		textField = new JTextField();
-		textField.setBackground(new Color(255, 255, 255));
-		textField.setBorder(null);
-		textField.setOpaque(false);
-		textField.setBounds(62, 246, 263, 30);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		txtCorreo = new JTextField();
+		txtCorreo.setBackground(new Color(255, 255, 255));
+		txtCorreo.setBorder(null);
+		txtCorreo.setOpaque(false);
+		txtCorreo.setBounds(62, 246, 263, 30);
+		frame.getContentPane().add(txtCorreo);
+		txtCorreo.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				try {
+					Usuario U=new Usuario();
+					U.setNombre(txtCorreo.getText());
+					U.setContraseña((txtContraseña.getText()));
+					if(U.login()) {
+						JOptionPane.showMessageDialog(null, "BIENVENIDO");
+						BarraDeCarga BA=new BarraDeCarga();
+						frame.setVisible(false);
+						BA.frmBarrraDeProgreso.setVisible(true);
+					}else {
+						JOptionPane.showMessageDialog(null, "correou/o password incorrecto");
+					}
+				} catch (Exception e2) {
+				JOptionPane.showMessageDialog(null, "error");
+				}
 			}
 		});
 		lblNewLabel.setIcon(new ImageIcon(Log.class.getResource("/pixel/fond.png")));
 		lblNewLabel.setBounds(0, -20, 1005, 642);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(75, 429, 258, 28);
-		frame.getContentPane().add(lblNewLabel_1);
+		lblLogin = new JLabel("");
+		lblLogin.setBounds(75, 429, 258, 28);
+		frame.getContentPane().add(lblLogin);
 	}
-
+	
 }

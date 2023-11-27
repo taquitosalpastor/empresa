@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2023 a las 19:05:40
+-- Tiempo de generación: 27-11-2023 a las 02:05:17
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -26,8 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `agcitas`
 --
--- Creación: 22-11-2023 a las 14:06:33
---
 
 CREATE TABLE `agcitas` (
   `idCitas` int(11) NOT NULL,
@@ -40,12 +38,17 @@ CREATE TABLE `agcitas` (
   `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `agcitas`
+--
+
+INSERT INTO `agcitas` (`idCitas`, `NomC`, `Fecha`, `Direccion`, `Sexo`, `NumTel`, `Sintomas`, `iduser`) VALUES
+(1, 'Gustavo', '26/11/23', 'Av.Pachuca Donas', 'Hombre', '55481', 'Dolor de Cabeza', 1);
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `agmedicamento`
---
--- Creación: 22-11-2023 a las 14:06:33
 --
 
 CREATE TABLE `agmedicamento` (
@@ -58,12 +61,17 @@ CREATE TABLE `agmedicamento` (
   `idProvedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `agmedicamento`
+--
+
+INSERT INTO `agmedicamento` (`idMedicamento`, `Medicamento`, `Provedor`, `Tipo`, `Stock`, `Precio`, `idProvedor`) VALUES
+(1, 'Gas', 'T', 't', 1, 30, 12);
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `agprovedores`
---
--- Creación: 22-11-2023 a las 14:06:33
 --
 
 CREATE TABLE `agprovedores` (
@@ -75,12 +83,17 @@ CREATE TABLE `agprovedores` (
   `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `agprovedores`
+--
+
+INSERT INTO `agprovedores` (`idProvedor`, `NomEmpresa`, `NomLab`, `NomProv`, `NumeroProv`, `iduser`) VALUES
+(12, 'sad', 'asd', 'asd', 'asd', 1);
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `detalleventa`
---
--- Creación: 22-11-2023 a las 17:47:43
 --
 
 CREATE TABLE `detalleventa` (
@@ -94,9 +107,6 @@ CREATE TABLE `detalleventa` (
 
 --
 -- Estructura de tabla para la tabla `quejas`
---
--- Creación: 22-11-2023 a las 17:44:14
--- Última actualización: 22-11-2023 a las 17:43:54
 --
 
 CREATE TABLE `quejas` (
@@ -113,8 +123,6 @@ CREATE TABLE `quejas` (
 --
 -- Estructura de tabla para la tabla `usuario`
 --
--- Creación: 22-11-2023 a las 14:06:33
---
 
 CREATE TABLE `usuario` (
   `iduser` int(11) NOT NULL,
@@ -122,12 +130,17 @@ CREATE TABLE `usuario` (
   `Contraseña` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`iduser`, `Nombre`, `Contraseña`) VALUES
+(1, '1', '123');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `ventamedicamento`
---
--- Creación: 22-11-2023 a las 17:55:16
 --
 
 CREATE TABLE `ventamedicamento` (
@@ -199,16 +212,16 @@ ALTER TABLE `ventamedicamento`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `agcitas`
+--
+ALTER TABLE `agcitas`
+  MODIFY `idCitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `agmedicamento`
 --
 ALTER TABLE `agmedicamento`
-  MODIFY `idMedicamento` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `agprovedores`
---
-ALTER TABLE `agprovedores`
-  MODIFY `idProvedor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMedicamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `detalleventa`

@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +15,9 @@ import java.time.format.DateTimeFormatter;
 
 import javax.swing.JTextField;
 import javax.swing.Timer;
+
+import ClasesP.Citass;
+
 import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
 import javax.swing.DefaultComboBoxModel;
@@ -31,6 +36,10 @@ public class Citas {
 	private JTextField txtSintomas;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JTextField txtIDU;
+	private JLabel lblNewLabel_3;
+	private JTextField txtIDC;
 
 	/**
 	 * Launch the application.
@@ -65,6 +74,26 @@ public class Citas {
 		frameCitas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameCitas.setLocationRelativeTo(null);
 		frameCitas.getContentPane().setLayout(null);
+		
+		txtIDC = new JTextField();
+		txtIDC.setColumns(10);
+		txtIDC.setBounds(222, 184, 51, 20);
+		frameCitas.getContentPane().add(txtIDC);
+		
+		lblNewLabel_3 = new JLabel("IDCliente");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_3.setBounds(159, 186, 67, 14);
+		frameCitas.getContentPane().add(lblNewLabel_3);
+		
+		lblNewLabel_2 = new JLabel("IDUser");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(46, 186, 46, 14);
+		frameCitas.getContentPane().add(lblNewLabel_2);
+		
+		txtIDU = new JTextField();
+		txtIDU.setBounds(98, 187, 51, 20);
+		frameCitas.getContentPane().add(txtIDU);
+		txtIDU.setColumns(10);
 		
 		txtCliente = new JTextField();
 		txtCliente.setBorder(null);
@@ -112,14 +141,39 @@ public class Citas {
 		frameCitas.getContentPane().add(txtFecha);
 		
 		lblHora = new JLabel("");
-		lblHora.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblHora.setBounds(24, 11, 127, 22);
+		lblHora.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblHora.setBounds(553, 128, 106, 29);
 		frameCitas.getContentPane().add(lblHora);
 		
-		JLabel Fonto = new JLabel("");
-		Fonto.setIcon(new ImageIcon(Citas.class.getResource("/pixel/Documento A4 Hoja De Pedidos Org.png")));
-		Fonto.setBounds(-23, -10, 682, 696);
-		frameCitas.getContentPane().add(Fonto);
+		JLabel lblAceptar = new JLabel("");
+		lblAceptar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					Citass C=new Citass();
+					C.setIdCitas(Integer.parseInt(txtIDC.getText()));
+					C.setNomC(txtCliente.getText());
+					C.setFecha(txtFecha.getText());
+					C.setDireccion(txtDireccion.getText());
+					C.setSexo(txtSexo.getText());
+					C.setNumTel(txtTelefono.getText());
+					C.setSintomas(txtSintomas.getText());
+					C.setIduser(Integer.parseInt(txtIDU.getText()));
+					
+					if(C.insertarCita()) {
+						JOptionPane.showMessageDialog(null, "Se inserto Correctamente ");
+						limpiar();
+					}else {
+						JOptionPane.showMessageDialog(null,"Error Al Insertar");
+					}
+				}catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ERROR al Insertar");
+				}
+			}
+		});
+		lblAceptar.setIcon(new ImageIcon(Citas.class.getResource("/pixel/Documento A4 Hoja De Pedidos Org.png")));
+		lblAceptar.setBounds(-23, -10, 682, 696);
+		frameCitas.getContentPane().add(lblAceptar);
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.addMouseListener(new MouseAdapter() {
@@ -131,13 +185,23 @@ public class Citas {
 		frameCitas.getContentPane().add(lblNewLabel);
 		
 	}
+	public void limpiar() {
+		txtCliente.setText("");
+		txtDireccion.setText("");
+		txtFecha.setText("");
+		txtIDC.setText("");
+		txtIDU.setText("");
+		txtSexo.setText("");
+		txtSintomas.setText("");
+		txtTelefono.setText("");
+	}
 	 public void HoraMX() {
 	    	new Timer(1000, new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					ZonedDateTime mexicoTime = ZonedDateTime.now(ZoneId.of("America/Mexico_City"));
 					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-					lblHora.setText("Hora: "+mexicoTime.format(formatter));
+					lblHora.setText(mexicoTime.format(formatter));
 				}
 			}).start();
 	    }
