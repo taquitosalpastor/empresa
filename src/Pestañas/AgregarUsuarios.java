@@ -25,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class AgregarUsuarios {
 
-	public JFrame frame;
+	public JFrame frmAgregarUsuario;
 	private JLabel lblContrasea;
 	private JLabel lblId;
 	private JLabel lblNewLabel;
@@ -46,7 +46,7 @@ public class AgregarUsuarios {
 			public void run() {
 				try {
 					AgregarUsuarios window = new AgregarUsuarios();
-					window.frame.setVisible(true);
+					window.frmAgregarUsuario.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -65,25 +65,25 @@ public class AgregarUsuarios {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 234, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmAgregarUsuario = new JFrame();
+		frmAgregarUsuario.setBounds(100, 100, 234, 300);
+		frmAgregarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmAgregarUsuario.getContentPane().setLayout(null);
 		
 		lblNewLabel = new JLabel("Nombre");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setBounds(10, 45, 67, 13);
-		frame.getContentPane().add(lblNewLabel);
+		frmAgregarUsuario.getContentPane().add(lblNewLabel);
 		
 		lblId = new JLabel("Id");
 		lblId.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblId.setBounds(10, 21, 67, 13);
-		frame.getContentPane().add(lblId);
+		frmAgregarUsuario.getContentPane().add(lblId);
 		
 		lblContrasea = new JLabel("Contraseña");
 		lblContrasea.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblContrasea.setBounds(10, 69, 67, 13);
-		frame.getContentPane().add(lblContrasea);
+		frmAgregarUsuario.getContentPane().add(lblContrasea);
 		
 		txtId = new JTextField();
 		txtId.addKeyListener(new KeyAdapter() {
@@ -95,7 +95,7 @@ public class AgregarUsuarios {
 			}
 		});
 		txtId.setBounds(87, 17, 86, 20);
-		frame.getContentPane().add(txtId);
+		frmAgregarUsuario.getContentPane().add(txtId);
 		txtId.setColumns(10);
 		
 		txtNom = new JTextField();
@@ -109,7 +109,7 @@ public class AgregarUsuarios {
 		});
 		txtNom.setColumns(10);
 		txtNom.setBounds(87, 41, 86, 20);
-		frame.getContentPane().add(txtNom);
+		frmAgregarUsuario.getContentPane().add(txtNom);
 		
 		txtContraseña = new JTextField();
 		txtContraseña.addKeyListener(new KeyAdapter() {
@@ -122,7 +122,7 @@ public class AgregarUsuarios {
 		});
 		txtContraseña.setColumns(10);
 		txtContraseña.setBounds(87, 65, 86, 20);
-		frame.getContentPane().add(txtContraseña);
+		frmAgregarUsuario.getContentPane().add(txtContraseña);
 		
 		btnCargar = new JButton("Cargar");
 		btnCargar.addActionListener(new ActionListener() {
@@ -146,7 +146,7 @@ public class AgregarUsuarios {
 			}
 		});
 		btnCargar.setBounds(10, 104, 89, 23);
-		frame.getContentPane().add(btnCargar);
+		frmAgregarUsuario.getContentPane().add(btnCargar);
 		
 		btnInsertar = new JButton("Insertar");
 		btnInsertar.addActionListener(new ActionListener() {
@@ -169,7 +169,7 @@ public class AgregarUsuarios {
 			}
 		});
 		btnInsertar.setBounds(109, 104, 89, 23);
-		frame.getContentPane().add(btnInsertar);
+		frmAgregarUsuario.getContentPane().add(btnInsertar);
 		
 		btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
@@ -190,7 +190,7 @@ public class AgregarUsuarios {
 			}
 		});
 		btnEliminar.setBounds(10, 138, 89, 23);
-		frame.getContentPane().add(btnEliminar);
+		frmAgregarUsuario.getContentPane().add(btnEliminar);
 		
 		btnLimpiar = new JButton("Limpiar");
 		btnLimpiar.addActionListener(new ActionListener() {
@@ -199,7 +199,7 @@ public class AgregarUsuarios {
 			}
 		});
 		btnLimpiar.setBounds(109, 138, 89, 23);
-		frame.getContentPane().add(btnLimpiar);
+		frmAgregarUsuario.getContentPane().add(btnLimpiar);
 	}
 	public void limpiar() {
 		txtId.setText("");

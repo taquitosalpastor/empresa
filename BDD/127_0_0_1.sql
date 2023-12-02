@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2023 a las 02:54:20
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 02-12-2023 a las 06:15:58
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,8 +28,6 @@ USE `farmacia`;
 --
 -- Estructura de tabla para la tabla `agcitas`
 --
--- Creación: 22-11-2023 a las 01:02:17
---
 
 CREATE TABLE `agcitas` (
   `idCitas` int(11) NOT NULL,
@@ -42,12 +40,18 @@ CREATE TABLE `agcitas` (
   `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `agcitas`
+--
+
+INSERT INTO `agcitas` (`idCitas`, `NomC`, `Fecha`, `Direccion`, `Sexo`, `NumTel`, `Sintomas`, `iduser`) VALUES
+(1, 'Gustavo', '26/11/23', 'Av.Pachuca Donas', 'Hombre', '55481', 'Dolor de Cabeza', 1),
+(3, 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 1);
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `agmedicamento`
---
--- Creación: 22-11-2023 a las 01:27:07
 --
 
 CREATE TABLE `agmedicamento` (
@@ -60,12 +64,19 @@ CREATE TABLE `agmedicamento` (
   `idProvedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `agmedicamento`
+--
+
+INSERT INTO `agmedicamento` (`idMedicamento`, `Medicamento`, `Provedor`, `Tipo`, `Stock`, `Precio`, `idProvedor`) VALUES
+(1, 'Gas', 'T', 't', 1, 30, 12),
+(2, 'Paracetamol', 'VAc', 'Desinflamatorio', 2, 40, 12),
+(5, 'asd', 'asd', 'asd', 2, 556, 3);
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `agprovedores`
---
--- Creación: 22-11-2023 a las 01:14:31
 --
 
 CREATE TABLE `agprovedores` (
@@ -77,43 +88,55 @@ CREATE TABLE `agprovedores` (
   `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `agprovedores`
+--
+
+INSERT INTO `agprovedores` (`idProvedor`, `NomEmpresa`, `NomLab`, `NomProv`, `NumeroProv`, `iduser`) VALUES
+(3, 'saasd', 'asd', 'asd', '56456456', 1),
+(12, 'sad', 'asd', 'asd', 'asd', 1),
+(15, 'asd', 'asd', 'sd', 'asd', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalleventa`
+--
+
+CREATE TABLE `detalleventa` (
+  `idDetalle` int(11) NOT NULL,
+  `idVentaM` int(11) NOT NULL,
+  `idMedicamento` int(11) NOT NULL,
+  `Cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `quejas`
 --
--- Creación: 22-11-2023 a las 01:46:16
---
 
 CREATE TABLE `quejas` (
   `idQuejas` int(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
-  `Queja` varchar(50) NOT NULL,
+  `Tipo` varchar(20) NOT NULL,
+  `Texto` varchar(50) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `sugerencia`
---
--- Creación: 22-11-2023 a las 01:47:06
+-- Volcado de datos para la tabla `quejas`
 --
 
-CREATE TABLE `sugerencia` (
-  `idSugerencia` int(11) NOT NULL,
-  `Nombre` varchar(30) NOT NULL,
-  `Sugerencia` varchar(50) NOT NULL,
-  `iduser` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `quejas` (`idQuejas`, `Nombre`, `Tipo`, `Texto`, `fecha`, `iduser`) VALUES
+(1, 'alfredo', 'Queja', 'Mala Atención', '2027-11-23 06:00:00', 1),
+(2, 'Pablo', 'Sugerencia', 'Poner mas medicamentos', '2027-11-23 06:00:00', 1);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `usuario`
---
--- Creación: 22-11-2023 a las 01:11:23
--- Última actualización: 22-11-2023 a las 01:11:24
 --
 
 CREATE TABLE `usuario` (
@@ -122,22 +145,37 @@ CREATE TABLE `usuario` (
   `Contraseña` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`iduser`, `Nombre`, `Contraseña`) VALUES
+(1, '1', '123');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `ventamedicamento`
 --
--- Creación: 22-11-2023 a las 01:34:09
---
 
 CREATE TABLE `ventamedicamento` (
   `idVentaM` int(11) NOT NULL,
   `Producto` varchar(80) NOT NULL,
-  `Precio` int(4) NOT NULL,
-  `Cantidad` int(2) NOT NULL,
-  `Total` int(4) NOT NULL,
-  `idMedicamento` int(11) NOT NULL
+  `Monto` int(10) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Folio` varchar(11) NOT NULL,
+  `Total` varchar(11) NOT NULL,
+  `idMedicamento` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ventamedicamento`
+--
+
+INSERT INTO `ventamedicamento` (`idVentaM`, `Producto`, `Monto`, `fecha`, `Folio`, `Total`, `idMedicamento`, `iduser`) VALUES
+(1, 'Paracetamol', 2, '2023-12-02 04:00:58', '40', '80', 2, 1),
+(2, 'Paracetamol', 2, '2023-12-02 04:18:37', '40', '80', 2, 1);
 
 --
 -- Índices para tablas volcadas
@@ -165,18 +203,19 @@ ALTER TABLE `agprovedores`
   ADD KEY `fk2` (`iduser`);
 
 --
+-- Indices de la tabla `detalleventa`
+--
+ALTER TABLE `detalleventa`
+  ADD PRIMARY KEY (`idDetalle`),
+  ADD KEY `fkidM` (`idVentaM`),
+  ADD KEY `fkventMd` (`idMedicamento`);
+
+--
 -- Indices de la tabla `quejas`
 --
 ALTER TABLE `quejas`
   ADD PRIMARY KEY (`idQuejas`),
   ADD KEY `fk5` (`iduser`);
-
---
--- Indices de la tabla `sugerencia`
---
-ALTER TABLE `sugerencia`
-  ADD PRIMARY KEY (`idSugerencia`),
-  ADD KEY `fk6` (`iduser`);
 
 --
 -- Indices de la tabla `usuario`
@@ -189,41 +228,42 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `ventamedicamento`
   ADD PRIMARY KEY (`idVentaM`),
-  ADD KEY `fk4` (`idMedicamento`);
+  ADD KEY `fk4` (`idMedicamento`),
+  ADD KEY `fkId` (`iduser`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
+-- AUTO_INCREMENT de la tabla `agcitas`
+--
+ALTER TABLE `agcitas`
+  MODIFY `idCitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `agmedicamento`
 --
 ALTER TABLE `agmedicamento`
-  MODIFY `idMedicamento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMedicamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `agprovedores`
+-- AUTO_INCREMENT de la tabla `detalleventa`
 --
-ALTER TABLE `agprovedores`
-  MODIFY `idProvedor` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `detalleventa`
+  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `quejas`
 --
 ALTER TABLE `quejas`
-  MODIFY `idQuejas` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `sugerencia`
---
-ALTER TABLE `sugerencia`
-  MODIFY `idSugerencia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idQuejas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `ventamedicamento`
 --
 ALTER TABLE `ventamedicamento`
-  MODIFY `idVentaM` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idVentaM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
@@ -248,22 +288,24 @@ ALTER TABLE `agprovedores`
   ADD CONSTRAINT `fk2` FOREIGN KEY (`iduser`) REFERENCES `usuario` (`iduser`);
 
 --
+-- Filtros para la tabla `detalleventa`
+--
+ALTER TABLE `detalleventa`
+  ADD CONSTRAINT `fkidM` FOREIGN KEY (`idVentaM`) REFERENCES `ventamedicamento` (`idVentaM`),
+  ADD CONSTRAINT `fkventMd` FOREIGN KEY (`idMedicamento`) REFERENCES `agmedicamento` (`idMedicamento`);
+
+--
 -- Filtros para la tabla `quejas`
 --
 ALTER TABLE `quejas`
   ADD CONSTRAINT `fk5` FOREIGN KEY (`iduser`) REFERENCES `usuario` (`iduser`);
 
 --
--- Filtros para la tabla `sugerencia`
---
-ALTER TABLE `sugerencia`
-  ADD CONSTRAINT `fk6` FOREIGN KEY (`iduser`) REFERENCES `usuario` (`iduser`);
-
---
 -- Filtros para la tabla `ventamedicamento`
 --
 ALTER TABLE `ventamedicamento`
-  ADD CONSTRAINT `fk4` FOREIGN KEY (`idMedicamento`) REFERENCES `agmedicamento` (`idMedicamento`);
+  ADD CONSTRAINT `fk4` FOREIGN KEY (`idMedicamento`) REFERENCES `agmedicamento` (`idMedicamento`),
+  ADD CONSTRAINT `fkId` FOREIGN KEY (`iduser`) REFERENCES `usuario` (`iduser`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

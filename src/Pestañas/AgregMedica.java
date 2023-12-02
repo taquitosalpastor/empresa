@@ -35,6 +35,7 @@ public class AgregMedica {
 	private JLabel lblNewLabel_3;
 	private JTextField txtIDP;
 	private JLabel lblAgregar;
+	private JLabel lblRegresar_1;
 
 	/**
 	 * Launch the application.
@@ -152,6 +153,16 @@ public class AgregMedica {
 		});
 		lblAgregar.setBounds(106, 516, 177, 49);
 		frmAgregarM.getContentPane().add(lblAgregar);
+		
+		lblRegresar_1 = new JLabel("");
+		lblRegresar_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frmAgregarM.dispose();
+			}
+		});
+		lblRegresar_1.setBounds(341, 497, 195, 68);
+		frmAgregarM.getContentPane().add(lblRegresar_1);
 		fondo.setIcon(new ImageIcon(AgregMedica.class.getResource("/pixel/Nuevo producto (1).png")));
 		fondo.setBounds(0, 0, 623, 595);
 		frmAgregarM.getContentPane().add(fondo);
@@ -160,9 +171,10 @@ public class AgregMedica {
 		lblRegresar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				frmAgregarM.dispose();
 			}
 		});
-		lblRegresar.setBounds(352, 516, 177, 49);
+		lblRegresar.setBounds(341, 497, 195, 68);
 		frmAgregarM.getContentPane().add(lblRegresar);
 	}
 	public void limpiar() {

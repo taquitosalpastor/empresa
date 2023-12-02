@@ -19,6 +19,7 @@ public class BarraDeCarga {
 	private JProgressBar progressBar;
 	private JButton btnStart;
 	String  Nombre="";
+	String Usuario;
 
 
 	public static void main(String[] args) {
@@ -35,8 +36,9 @@ public class BarraDeCarga {
 	}
 
 	
-	public BarraDeCarga() {
+	public BarraDeCarga(String usuario) {
 		initialize();
+		this.Usuario=usuario;
 		Start();
 	}
 
@@ -54,7 +56,7 @@ public class BarraDeCarga {
 						e.printStackTrace();
 				}
 					if(i==100) {
-						Frmc FRC=new Frmc(Nombre);
+						Frmc FRC=new Frmc(Usuario);
 						FRC.frmFarmaciaUsuario.show(true);
 						frmBarrraDeProgreso.show(false);
 					}

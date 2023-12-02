@@ -11,19 +11,26 @@ import java.awt.Font;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import ClasesP.Usuario;
+import ClasesP.VentaMedicamento;
+import Datas.DataUsuario;
+import Datas.DataVentaMedicamento;
+
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class Cajero {
 
 	public JFrame frmResumenDeCompra;
-	private JScrollPane scrollPane;
-	private JTable table;
+	private JScrollPane tblE;
+	private JTable tblRC;
 	private JButton btnPagar;
 	private JPanel panel_1;
 	private JLabel lblCarro2;
@@ -50,6 +57,11 @@ public class Cajero {
 	private JLabel lblNewLabel_16;
 	private JButton btnRegresar;
 	private JButton btnLimpiar;
+	ArrayList<VentaMedicamento> listaVM=new ArrayList<VentaMedicamento>();
+	VentaMedicamento x=null;
+	int fila=0;
+	int id=0;
+	public DefaultTableModel modelo =new DefaultTableModel();
 
 	/**
 	 * Launch the application.
@@ -72,11 +84,34 @@ public class Cajero {
 	 */
 	public Cajero() {
 		initialize();
+		actualizarTabla();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	public void actualizarTabla() {
+		DataVentaMedicamento DV=new DataVentaMedicamento();
+		while (modelo.getRowCount()>0) {
+			modelo.removeRow(0);
+		}
+		listaVM=DV.selectVM();
+		for(VentaMedicamento Usuarioss : listaVM) {
+			Object o[]=new Object[8];
+			o[0]=Usuarioss.getIdVentaM();
+			o[1]=Usuarioss.getProducto();
+			o[2]=Usuarioss.getMonto();
+			o[3]=Usuarioss.getFecha();
+			o[4]=Usuarioss.getFolio();
+			o[5]=Usuarioss.getTotal();
+			o[6]=Usuarioss.getIdMedicamento();
+			o[7]=Usuarioss.getIduser();
+			
+			modelo.addRow(o);
+			
+		}
+		tblRC.setModel(modelo);
+		
+	}
+	 
+	
 	private void initialize() {
 		frmResumenDeCompra = new JFrame();
 		frmResumenDeCompra.getContentPane().setBackground(new Color(6, 138, 151));
@@ -134,24 +169,29 @@ public class Cajero {
 		frmResumenDeCompra.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 120, 527, 233);
-		panel_1.add(scrollPane);
-		scrollPane.setBorder(null);
-		scrollPane.setBackground(new Color(128, 255, 255));
+		tblE = new JScrollPane();
+		tblE.setBounds(20, 120, 527, 233);
+		panel_1.add(tblE);
+		tblE.setBorder(null);
+		tblE.setBackground(new Color(128, 255, 255));
 		
-		table = new JTable();
-		table.setOpaque(false);
-		table.setBackground(new Color(128, 255, 255));
-		table.setGridColor(new Color(128, 255, 255));
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"New column"
-			}
+		tblRC = new JTable();
+		tblRC.setOpaque(false);
+		tblRC.setBackground(new Color(128, 255, 255));
+		tblRC.setGridColor(new Color(128, 255, 255));
+		tblRC.setModel(new DefaultTableModel(
+			
 		));
-		scrollPane.setViewportView(table);
+		tblE.setViewportView(tblRC);
+		modelo.addColumn("IDVenta");
+		modelo.addColumn("Producto");
+		modelo.addColumn("Monto");
+		modelo.addColumn("Fecha");
+		modelo.addColumn("Precio");
+		modelo.addColumn("Total");
+		modelo.addColumn("idMedicamneto");
+		modelo.addColumn("IDUser");
+		actualizarTabla();
 		
 		JLabel lblCarro = new JLabel("");
 		lblCarro.setIcon(new ImageIcon(Cajero.class.getResource("/pixel/5465858 (1).png")));
@@ -250,6 +290,8 @@ public class Cajero {
 		panel_2.add(lblNewLabel_7);
 		
 		txtTotalProducto = new JTextField();
+		int rowCount = tblRC.getRowCount();
+		txtTotalProducto.setText(Integer.toString(rowCount));
 		txtTotalProducto.setBorder(new LineBorder(new Color(171, 173, 179), 2));
 		txtTotalProducto.setOpaque(false);
 		txtTotalProducto.setFocusTraversalPolicyProvider(true);
@@ -257,7 +299,19 @@ public class Cajero {
 		panel_2.add(txtTotalProducto);
 		txtTotalProducto.setColumns(10);
 		
+		double totalCompra = 0;
+		for (int i = 0; i < modelo.getRowCount(); i++) {
+		    double totalProducto = Double.parseDouble(modelo.getValueAt(i, 5).toString());
+		    totalCompra += totalProducto;
+		}
+
+		
+		
+		
 		txtTotalCompra = new JTextField();
+		
+		txtTotalCompra.setText("");
+		txtTotalCompra.setText(String.valueOf(totalCompra));
 		txtTotalCompra.setOpaque(false);
 		txtTotalCompra.setFocusTraversalPolicyProvider(true);
 		txtTotalCompra.setColumns(10);

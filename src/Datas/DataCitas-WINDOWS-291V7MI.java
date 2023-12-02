@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ClasesP.Citass;
-
+import Pestañas.Citas;
 
 public class DataCitas {
 	Connection cx;
@@ -43,28 +43,28 @@ public class DataCitas {
 			return false;
 		}
 	}
-	public ArrayList<Citass> selectCitas() {
+	public ArrayList<Citass> selectCita() {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        ArrayList<Citass> listaCitas=new ArrayList<Citass>();
+        ArrayList<Citass> listaCita=new ArrayList<Citass>();
         try {
             ps = Conectar().prepareStatement("SELECT * FROM agcitas");            
             rs = ps.executeQuery();
             while (rs.next()) {
-                Citass Ci=new Citass();
-                Ci.setIdCitas(rs.getInt(1));
-                Ci.setNomC(rs.getString(2));
-                Ci.setFecha(rs.getString(3));
-                Ci.setDireccion(rs.getString(4));
-                Ci.setSexo(rs.getString(5));
-                Ci.setNumTel(rs.getString(6));
-                Ci.setSintomas(rs.getString(7));
-                Ci.setIduser(rs.getInt(8));
+                Citass c=new Citass();
+                c.setIdCitas(rs.getInt(1));
+                c.setNomC(rs.getString(2));
+                c.setFecha(rs.getString(3));
+                c.setDireccion(rs.getString(4));
+                c.setSexo(rs.getString(5));
+                c.setNumTel(rs.getString(6));
+                c.setSintomas(rs.getString(7));
+                c.setIduser(rs.getInt(8));
                 
-                listaCitas.add(Ci);
+                listaCita.add(c);
             }
         } catch (Exception e) {
         }
-        return listaCitas;
+        return listaCita;
     }
 }

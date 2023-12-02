@@ -19,6 +19,13 @@ public boolean insertarMedicamento() {
 	return false;
 }
 
+public boolean cargarM() {
+	if(DMM.cargarM(this)) {
+		return true;
+	}
+	return false;
+}
+
 public Medicamento() {
 	
 }

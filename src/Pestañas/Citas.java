@@ -35,11 +35,13 @@ public class Citas {
 	private JLabel lblHora;
 	private JTextField txtSintomas;
 	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
+	private JLabel lblRegresar;
 	private JLabel lblNewLabel_2;
 	private JTextField txtIDU;
 	private JLabel lblNewLabel_3;
 	private JTextField txtIDC;
+	private JLabel lblAceptar;
+	private JLabel lblNewLabel_1;
 
 	/**
 	 * Launch the application.
@@ -107,14 +109,15 @@ public class Citas {
 		frameCitas.getContentPane().add(txtSintomas);
 		txtSintomas.setColumns(10);
 		
-		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+		lblRegresar = new JLabel("");
+		lblRegresar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				frameCitas.dispose();
 			}
 		});
-		lblNewLabel_1.setBounds(398, 453, 174, 59);
-		frameCitas.getContentPane().add(lblNewLabel_1);
+		lblRegresar.setBounds(398, 453, 174, 59);
+		frameCitas.getContentPane().add(lblRegresar);
 		
 		txtDireccion = new JTextField();
 		txtDireccion.setBorder(null);
@@ -140,13 +143,8 @@ public class Citas {
 		txtFecha.setBounds(177, 384, 142, 39);
 		frameCitas.getContentPane().add(txtFecha);
 		
-		lblHora = new JLabel("");
-		lblHora.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblHora.setBounds(553, 128, 106, 29);
-		frameCitas.getContentPane().add(lblHora);
-		
-		JLabel lblAceptar = new JLabel("");
-		lblAceptar.addMouseListener(new MouseAdapter() {
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
@@ -169,6 +167,22 @@ public class Citas {
 				}catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ERROR al Insertar");
 				}
+				
+			}
+		});
+		lblNewLabel_1.setBounds(114, 458, 159, 54);
+		frameCitas.getContentPane().add(lblNewLabel_1);
+		
+		lblHora = new JLabel("");
+		lblHora.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblHora.setBounds(553, 128, 106, 29);
+		frameCitas.getContentPane().add(lblHora);
+		
+		lblAceptar = new JLabel("");
+		lblAceptar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
 			}
 		});
 		lblAceptar.setIcon(new ImageIcon(Citas.class.getResource("/pixel/Documento A4 Hoja De Pedidos Org.png")));
@@ -179,6 +193,7 @@ public class Citas {
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
 			}
 		});
 		lblNewLabel.setBounds(114, 458, 159, 54);

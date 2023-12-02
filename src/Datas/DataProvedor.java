@@ -3,9 +3,12 @@ package Datas;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import ClasesP.Provedor;
+import ClasesP.Usuario;
 
 public class DataProvedor {
 	Connection cx;
@@ -37,4 +40,26 @@ public class DataProvedor {
 			return false;
 		}
 	}
+	public ArrayList<Provedor> selectProv() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<Provedor> listaProv=new ArrayList<Provedor>();
+        try {
+            ps = Conectar().prepareStatement("SELECT * FROM agprovedores");            
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Provedor c=new Provedor();
+                c.setIdProvedor(rs.getInt(1));
+                c.setNomEmpresa(rs.getString(2));
+                c.setNomLab(rs.getString(3));
+                c.setNomProv(rs.getString(4));
+                c.setNumeroProv(rs.getString(5));
+                c.setIduser(rs.getInt(6));
+                
+                listaProv.add(c);
+            }
+        } catch (Exception e) {
+        }
+        return listaProv;
+    }
 }
