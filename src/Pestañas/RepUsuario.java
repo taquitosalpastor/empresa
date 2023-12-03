@@ -36,6 +36,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
 public class RepUsuario {
 
@@ -50,6 +51,7 @@ public class RepUsuario {
 	private JScrollPane TblE;
 	private JButton btnNewButton_1;
 	private JButton btnNewButton;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -150,6 +152,11 @@ public class RepUsuario {
 		});
 		btnNewButton_1.setBounds(116, 185, 89, 23);
 		frmRepU.getContentPane().add(btnNewButton_1);
+		
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(RepUsuario.class.getResource("/Imag/Diseño sin título.png")));
+		lblNewLabel.setBounds(0, 0, 321, 263);
+		frmRepU.getContentPane().add(lblNewLabel);
 	}
 	public void generarPDFU() {
         try {

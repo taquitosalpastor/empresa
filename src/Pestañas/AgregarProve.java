@@ -25,12 +25,10 @@ public class AgregarProve {
 	private JTextField txtNumProv;
 	private JLabel lblAgregar;
 	private JLabel lblRegresar;
-	private JLabel fondo;
-	private JLabel lblNewLabel;
 	private JTextField txtIDP;
-	private JLabel lblIduser;
 	private JLabel lblUser;
 	private JTextField txtIDU;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -60,7 +58,7 @@ public class AgregarProve {
 	 */
 	private void initialize() {
 		frmProvedores = new JFrame();
-		frmProvedores.setBounds(100, 100, 455, 486);
+		frmProvedores.setBounds(100, 100, 468, 492);
 		frmProvedores.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmProvedores.getContentPane().setLayout(null);
 		frmProvedores.setLocationRelativeTo(null);
@@ -77,7 +75,7 @@ public class AgregarProve {
 		
 		txtIDU = new JTextField();
 		txtIDU.setColumns(10);
-		txtIDU.setBounds(249, 337, 31, 20);
+		txtIDU.setBounds(327, 153, 96, 20);
 		frmProvedores.getContentPane().add(txtIDU);
 		
 		lblUser = new JLabel("");
@@ -85,27 +83,12 @@ public class AgregarProve {
 		lblUser.setBounds(249, 337, 69, 19);
 		frmProvedores.getContentPane().add(lblUser);
 		
-		lblIduser = new JLabel("IDUser");
-		lblIduser.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblIduser.setBounds(25, 337, 178, 19);
-		frmProvedores.getContentPane().add(lblIduser);
-		
 		txtIDP = new JTextField();
-		txtIDP.setBounds(254, 152, 31, 20);
+		txtIDP.setBounds(114, 153, 87, 20);
 		frmProvedores.getContentPane().add(txtIDP);
 		txtIDP.setColumns(10);
-		
-		lblNewLabel = new JLabel("IDProvedor");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel.setBounds(25, 153, 178, 19);
-		frmProvedores.getContentPane().add(lblNewLabel);
-		
-		fondo = new JLabel("");
-		fondo.setIcon(new ImageIcon(AgregarProve.class.getResource("/pixel/provedores (1).png")));
-		fondo.setBounds(0, 0, 450, 445);
-		frmProvedores.getContentPane().add(fondo);
 		txtNomEmpresa.setBorder(null);
-		txtNomEmpresa.setBounds(254, 183, 133, 19);
+		txtNomEmpresa.setBounds(265, 187, 133, 19);
 		frmProvedores.getContentPane().add(txtNomEmpresa);
 		txtNomEmpresa.setColumns(10);
 		
@@ -120,7 +103,7 @@ public class AgregarProve {
 		});
 		txtNomLab.setBorder(null);
 		txtNomLab.setColumns(10);
-		txtNomLab.setBounds(254, 231, 133, 19);
+		txtNomLab.setBounds(265, 234, 133, 19);
 		frmProvedores.getContentPane().add(txtNomLab);
 		
 		txtNomProve = new JTextField();
@@ -134,7 +117,7 @@ public class AgregarProve {
 		});
 		txtNomProve.setBorder(null);
 		txtNomProve.setColumns(10);
-		txtNomProve.setBounds(254, 269, 133, 19);
+		txtNomProve.setBounds(265, 281, 133, 19);
 		frmProvedores.getContentPane().add(txtNomProve);
 		
 		txtNumProv = new JTextField();
@@ -148,7 +131,7 @@ public class AgregarProve {
 		});
 		txtNumProv.setBorder(null);
 		txtNumProv.setColumns(10);
-		txtNumProv.setBounds(254, 310, 133, 19);
+		txtNumProv.setBounds(265, 319, 133, 19);
 		frmProvedores.getContentPane().add(txtNumProv);
 		
 		lblAgregar = new JLabel("");
@@ -185,6 +168,11 @@ public class AgregarProve {
 		});
 		lblRegresar.setBounds(249, 368, 133, 34);
 		frmProvedores.getContentPane().add(lblRegresar);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(AgregarProve.class.getResource("/pixelfont/Nombre de empresa (1).png")));
+		lblNewLabel.setBounds(0, 0, 454, 455);
+		frmProvedores.getContentPane().add(lblNewLabel);
 	}
 	public void limpiar() {
 		txtNomEmpresa.setText("");

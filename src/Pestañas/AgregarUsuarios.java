@@ -22,13 +22,11 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.swing.ImageIcon;
 
 public class AgregarUsuarios {
 
 	public JFrame frmAgregarUsuario;
-	private JLabel lblContrasea;
-	private JLabel lblId;
-	private JLabel lblNewLabel;
 	private JTextField txtId;
 	private JTextField txtNom;
 	private JTextField txtContraseña;
@@ -38,6 +36,7 @@ public class AgregarUsuarios {
 	private JButton btnLimpiar;
 	Usuario Us=new Usuario();
 	ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
+	private JLabel lblNewLabel_1;
 	/**
 	 * Launch the application.
 	 */
@@ -66,24 +65,9 @@ public class AgregarUsuarios {
 	 */
 	private void initialize() {
 		frmAgregarUsuario = new JFrame();
-		frmAgregarUsuario.setBounds(100, 100, 234, 300);
+		frmAgregarUsuario.setBounds(100, 100, 518, 549);
 		frmAgregarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAgregarUsuario.getContentPane().setLayout(null);
-		
-		lblNewLabel = new JLabel("Nombre");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(10, 45, 67, 13);
-		frmAgregarUsuario.getContentPane().add(lblNewLabel);
-		
-		lblId = new JLabel("Id");
-		lblId.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblId.setBounds(10, 21, 67, 13);
-		frmAgregarUsuario.getContentPane().add(lblId);
-		
-		lblContrasea = new JLabel("Contraseña");
-		lblContrasea.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblContrasea.setBounds(10, 69, 67, 13);
-		frmAgregarUsuario.getContentPane().add(lblContrasea);
 		
 		txtId = new JTextField();
 		txtId.addKeyListener(new KeyAdapter() {
@@ -94,7 +78,7 @@ public class AgregarUsuarios {
 					}
 			}
 		});
-		txtId.setBounds(87, 17, 86, 20);
+		txtId.setBounds(257, 190, 86, 20);
 		frmAgregarUsuario.getContentPane().add(txtId);
 		txtId.setColumns(10);
 		
@@ -108,7 +92,7 @@ public class AgregarUsuarios {
 			}
 		});
 		txtNom.setColumns(10);
-		txtNom.setBounds(87, 41, 86, 20);
+		txtNom.setBounds(243, 246, 118, 20);
 		frmAgregarUsuario.getContentPane().add(txtNom);
 		
 		txtContraseña = new JTextField();
@@ -121,10 +105,12 @@ public class AgregarUsuarios {
 			}
 		});
 		txtContraseña.setColumns(10);
-		txtContraseña.setBounds(87, 65, 86, 20);
+		txtContraseña.setBounds(243, 303, 118, 20);
 		frmAgregarUsuario.getContentPane().add(txtContraseña);
 		
-		btnCargar = new JButton("Cargar");
+		btnCargar = new JButton("");
+		btnCargar.setOpaque(false);
+		btnCargar.setBorder(null);
 		btnCargar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -145,10 +131,12 @@ public class AgregarUsuarios {
 				}
 			}
 		});
-		btnCargar.setBounds(10, 104, 89, 23);
+		btnCargar.setBounds(68, 355, 161, 44);
 		frmAgregarUsuario.getContentPane().add(btnCargar);
 		
-		btnInsertar = new JButton("Insertar");
+		btnInsertar = new JButton("");
+		btnInsertar.setBorder(null);
+		btnInsertar.setOpaque(false);
 		btnInsertar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -168,10 +156,12 @@ public class AgregarUsuarios {
 				}
 			}
 		});
-		btnInsertar.setBounds(109, 104, 89, 23);
+		btnInsertar.setBounds(301, 355, 161, 44);
 		frmAgregarUsuario.getContentPane().add(btnInsertar);
 		
-		btnEliminar = new JButton("Eliminar");
+		btnEliminar = new JButton("");
+		btnEliminar.setBorder(null);
+		btnEliminar.setOpaque(false);
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -189,17 +179,24 @@ public class AgregarUsuarios {
 				}
 			}
 		});
-		btnEliminar.setBounds(10, 138, 89, 23);
+		btnEliminar.setBounds(69, 428, 151, 56);
 		frmAgregarUsuario.getContentPane().add(btnEliminar);
 		
-		btnLimpiar = new JButton("Limpiar");
+		btnLimpiar = new JButton("");
+		btnLimpiar.setOpaque(false);
+		btnLimpiar.setBorder(null);
 		btnLimpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				limpiar();
 			}
 		});
-		btnLimpiar.setBounds(109, 138, 89, 23);
+		btnLimpiar.setBounds(301, 440, 161, 44);
 		frmAgregarUsuario.getContentPane().add(btnLimpiar);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(AgregarUsuarios.class.getResource("/pixelfont/Captura de pantalla 2023-12-03 131550.png")));
+		lblNewLabel_1.setBounds(0, 0, 528, 512);
+		frmAgregarUsuario.getContentPane().add(lblNewLabel_1);
 	}
 	public void limpiar() {
 		txtId.setText("");

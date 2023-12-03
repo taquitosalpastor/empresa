@@ -7,6 +7,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class Antibioticos {
 
@@ -66,5 +68,10 @@ public class Antibioticos {
 		JButton btnRegresar = new JButton("Regresar");
 		btnRegresar.setBounds(342, 79, 85, 21);
 		frameAnti.getContentPane().add(btnRegresar);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Antibioticos.class.getResource("/Imag/Diseño sin título.png")));
+		lblNewLabel.setBounds(0, 0, 436, 273);
+		frameAnti.getContentPane().add(lblNewLabel);
 	}
 }

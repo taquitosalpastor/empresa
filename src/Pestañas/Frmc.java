@@ -47,6 +47,7 @@ import Datas.DataCitas;
 import Datas.DataProvedor;
 import Datas.DataQuejas;
 import Datas.DataUsuario;
+import java.awt.Toolkit;
 
 	public class Frmc {
 
@@ -100,6 +101,7 @@ import Datas.DataUsuario;
 	    private void initialize() {
 
 	        frmFarmaciaUsuario = new JFrame();
+	        frmFarmaciaUsuario.setIconImage(Toolkit.getDefaultToolkit().getImage(Frmc.class.getResource("/Imag/LogFar.png")));
 	        frmFarmaciaUsuario.setBackground(new Color(128, 255, 255));
 	        frmFarmaciaUsuario.getContentPane().setBackground(new Color(128, 255, 255));
 	        frmFarmaciaUsuario.setTitle("Farmacia Usuario");

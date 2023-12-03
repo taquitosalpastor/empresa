@@ -30,9 +30,7 @@ public class AgregMedica {
 	private JTextField txtProvedor;
 	private JLabel fondo;
 	private JLabel lblRegresar;
-	private JLabel lblNewLabel_2;
 	private JTextField txtIDM;
-	private JLabel lblNewLabel_3;
 	private JTextField txtIDP;
 	private JLabel lblAgregar;
 	private JLabel lblRegresar_1;
@@ -65,58 +63,48 @@ public class AgregMedica {
 	 */
 	private void initialize() {
 		frmAgregarM = new JFrame();
-		frmAgregarM.setBounds(100, 100, 637, 632);
+		frmAgregarM.setBounds(100, 100, 681, 651);
 		frmAgregarM.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAgregarM.getContentPane().setLayout(null);
 		
 		txtMedicamento = new JTextField();
 		txtMedicamento.setBorder(null);
-		txtMedicamento.setBounds(465, 216, 130, 27);
+		txtMedicamento.setBounds(509, 243, 130, 27);
 		frmAgregarM.getContentPane().add(txtMedicamento);
 		txtMedicamento.setColumns(10);
 		
 		txtIDP = new JTextField();
 		txtIDP.setColumns(10);
-		txtIDP.setBounds(465, 466, 86, 20);
+		txtIDP.setBounds(509, 203, 130, 20);
 		frmAgregarM.getContentPane().add(txtIDP);
 		
-		lblNewLabel_2 = new JLabel("IdMedicamento");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(312, 176, 117, 14);
-		frmAgregarM.getContentPane().add(lblNewLabel_2);
-		
-		lblNewLabel_3 = new JLabel("IdProvedor");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(352, 464, 117, 14);
-		frmAgregarM.getContentPane().add(lblNewLabel_3);
-		
 		txtIDM = new JTextField();
-		txtIDM.setBounds(469, 172, 86, 20);
+		txtIDM.setBounds(509, 154, 130, 27);
 		frmAgregarM.getContentPane().add(txtIDM);
 		txtIDM.setColumns(10);
 		
 		txtStoks = new JTextField();
 		txtStoks.setBorder(null);
 		txtStoks.setColumns(10);
-		txtStoks.setBounds(467, 367, 128, 27);
+		txtStoks.setBounds(509, 403, 128, 27);
 		frmAgregarM.getContentPane().add(txtStoks);
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setBorder(null);
 		txtPrecio.setColumns(10);
-		txtPrecio.setBounds(465, 414, 130, 27);
+		txtPrecio.setBounds(509, 462, 130, 27);
 		frmAgregarM.getContentPane().add(txtPrecio);
 		
 		txtTipo = new JTextField();
 		txtTipo.setBorder(null);
 		txtTipo.setColumns(10);
-		txtTipo.setBounds(465, 319, 130, 27);
+		txtTipo.setBounds(509, 355, 130, 27);
 		frmAgregarM.getContentPane().add(txtTipo);
 		
 		txtProvedor = new JTextField();
 		txtProvedor.setBorder(null);
 		txtProvedor.setColumns(10);
-		txtProvedor.setBounds(466, 267, 130, 27);
+		txtProvedor.setBounds(509, 296, 130, 27);
 		frmAgregarM.getContentPane().add(txtProvedor);
 		
 		fondo = new JLabel("");
@@ -163,8 +151,8 @@ public class AgregMedica {
 		});
 		lblRegresar_1.setBounds(341, 497, 195, 68);
 		frmAgregarM.getContentPane().add(lblRegresar_1);
-		fondo.setIcon(new ImageIcon(AgregMedica.class.getResource("/pixel/Nuevo producto (1).png")));
-		fondo.setBounds(0, 0, 623, 595);
+		fondo.setIcon(new ImageIcon(AgregMedica.class.getResource("/pixelfont/Nuevo producto (1).png")));
+		fondo.setBounds(0, 0, 667, 614);
 		frmAgregarM.getContentPane().add(fondo);
 		
 		lblRegresar = new JLabel("");

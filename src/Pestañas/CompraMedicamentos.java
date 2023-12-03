@@ -147,7 +147,7 @@ public class CompraMedicamentos {
 		
 		txtIDU = new JTextField();
 		txtIDU.setColumns(10);
-		txtIDU.setBounds(235, 102, 53, 20);
+		txtIDU.setBounds(265, 103, 53, 20);
 		frmMedicamentos.getContentPane().add(txtIDU);
 		
 		JLabel lblNewLabel = new JLabel("Productos");
@@ -205,12 +205,12 @@ public class CompraMedicamentos {
 		
 		txtIDP = new JTextField();
 		txtIDP.setColumns(10);
-		txtIDP.setBounds(235, 128, 53, 20);
+		txtIDP.setBounds(264, 129, 53, 20);
 		frmMedicamentos.getContentPane().add(txtIDP);
 		
 		lblIdu = new JLabel("IDU");
 		lblIdu.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblIdu.setBounds(199, 102, 48, 19);
+		lblIdu.setBounds(209, 102, 48, 19);
 		frmMedicamentos.getContentPane().add(lblIdu);
 		
 		txtPrecio = new JTextField();
@@ -235,7 +235,7 @@ public class CompraMedicamentos {
 		
 		lblIdu_1 = new JLabel("IDP");
 		lblIdu_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblIdu_1.setBounds(199, 128, 48, 19);
+		lblIdu_1.setBounds(206, 128, 48, 19);
 		frmMedicamentos.getContentPane().add(lblIdu_1);
 		
 		txtTotal = new JTextField();

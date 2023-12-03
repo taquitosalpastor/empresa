@@ -14,6 +14,8 @@ import ClasesP.Provedor;
 import Datas.DataProvedor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 
 
@@ -28,6 +30,7 @@ public class RepP {
 		int fila=0;
 		int id=0;
 		public DefaultTableModel modelo =new DefaultTableModel();
+		private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -131,6 +134,11 @@ public class RepP {
 		btnNewButton_1 = new JButton("PDF");
 		btnNewButton_1.setBounds(141, 188, 89, 23);
 		frmREP.getContentPane().add(btnNewButton_1);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(RepP.class.getResource("/Imag/Diseño sin título.png")));
+		lblNewLabel.setBounds(0, 0, 436, 263);
+		frmREP.getContentPane().add(lblNewLabel);
 	}
 
 }

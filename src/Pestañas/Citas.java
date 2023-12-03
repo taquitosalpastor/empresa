@@ -36,11 +36,8 @@ public class Citas {
 	private JTextField txtSintomas;
 	private JLabel lblNewLabel;
 	private JLabel lblRegresar;
-	private JLabel lblNewLabel_2;
 	private JTextField txtIDU;
-	private JLabel lblNewLabel_3;
 	private JTextField txtIDC;
-	private JLabel lblAceptar;
 	private JLabel lblNewLabel_1;
 
 	/**
@@ -79,33 +76,23 @@ public class Citas {
 		
 		txtIDC = new JTextField();
 		txtIDC.setColumns(10);
-		txtIDC.setBounds(222, 184, 51, 20);
+		txtIDC.setBounds(457, 253, 138, 29);
 		frameCitas.getContentPane().add(txtIDC);
 		
-		lblNewLabel_3 = new JLabel("IDCliente");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_3.setBounds(159, 186, 67, 14);
-		frameCitas.getContentPane().add(lblNewLabel_3);
-		
-		lblNewLabel_2 = new JLabel("IDUser");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_2.setBounds(46, 186, 46, 14);
-		frameCitas.getContentPane().add(lblNewLabel_2);
-		
 		txtIDU = new JTextField();
-		txtIDU.setBounds(98, 187, 51, 20);
+		txtIDU.setBounds(153, 243, 138, 39);
 		frameCitas.getContentPane().add(txtIDU);
 		txtIDU.setColumns(10);
 		
 		txtCliente = new JTextField();
 		txtCliente.setBorder(null);
-		txtCliente.setBounds(177, 218, 434, 39);
+		txtCliente.setBounds(153, 301, 434, 39);
 		frameCitas.getContentPane().add(txtCliente);
 		txtCliente.setColumns(10);
 		
 		txtSintomas = new JTextField();
 		txtSintomas.setBorder(null);
-		txtSintomas.setBounds(469, 394, 142, 29);
+		txtSintomas.setBounds(457, 478, 142, 29);
 		frameCitas.getContentPane().add(txtSintomas);
 		txtSintomas.setColumns(10);
 		
@@ -116,31 +103,31 @@ public class Citas {
 				frameCitas.dispose();
 			}
 		});
-		lblRegresar.setBounds(398, 453, 174, 59);
+		lblRegresar.setBounds(374, 543, 182, 59);
 		frameCitas.getContentPane().add(lblRegresar);
 		
 		txtDireccion = new JTextField();
 		txtDireccion.setBorder(null);
 		txtDireccion.setColumns(10);
-		txtDireccion.setBounds(177, 276, 434, 39);
+		txtDireccion.setBounds(153, 360, 434, 39);
 		frameCitas.getContentPane().add(txtDireccion);
 		
 		txtSexo = new JTextField();
 		txtSexo.setBorder(null);
 		txtSexo.setColumns(10);
-		txtSexo.setBounds(469, 335, 142, 39);
+		txtSexo.setBounds(457, 409, 142, 39);
 		frameCitas.getContentPane().add(txtSexo);
 		
 		txtTelefono = new JTextField();
 		txtTelefono.setBorder(null);
-		txtTelefono.setBounds(177, 335, 144, 39);
+		txtTelefono.setBounds(147, 409, 144, 39);
 		frameCitas.getContentPane().add(txtTelefono);
 		txtTelefono.setColumns(10);
 		
 		txtFecha = new JTextField();
 		txtFecha.setBorder(null);
 		txtFecha.setColumns(10);
-		txtFecha.setBounds(177, 384, 142, 39);
+		txtFecha.setBounds(158, 473, 142, 39);
 		frameCitas.getContentPane().add(txtFecha);
 		
 		lblNewLabel_1 = new JLabel("");
@@ -170,24 +157,13 @@ public class Citas {
 				
 			}
 		});
-		lblNewLabel_1.setBounds(114, 458, 159, 54);
+		lblNewLabel_1.setBounds(64, 543, 176, 59);
 		frameCitas.getContentPane().add(lblNewLabel_1);
 		
 		lblHora = new JLabel("");
 		lblHora.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblHora.setBounds(553, 128, 106, 29);
+		lblHora.setBounds(553, 128, 94, 29);
 		frameCitas.getContentPane().add(lblHora);
-		
-		lblAceptar = new JLabel("");
-		lblAceptar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-			}
-		});
-		lblAceptar.setIcon(new ImageIcon(Citas.class.getResource("/pixel/Documento A4 Hoja De Pedidos Org.png")));
-		lblAceptar.setBounds(-23, -10, 682, 696);
-		frameCitas.getContentPane().add(lblAceptar);
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.addMouseListener(new MouseAdapter() {
@@ -196,8 +172,13 @@ public class Citas {
 				
 			}
 		});
-		lblNewLabel.setBounds(114, 458, 159, 54);
+		lblNewLabel.setBounds(75, 543, 165, 59);
 		frameCitas.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon(Citas.class.getResource("/pixelfont/Captura de pantalla 2023-12-03 111048.png")));
+		lblNewLabel_4.setBounds(0, 0, 659, 640);
+		frameCitas.getContentPane().add(lblNewLabel_4);
 		
 	}
 	public void limpiar() {

@@ -7,6 +7,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class Desinflamatorios {
 
@@ -66,6 +68,11 @@ public class Desinflamatorios {
 		JButton btnRegresar = new JButton("Regresar");
 		btnRegresar.setBounds(351, 85, 85, 21);
 		frameDesinfla.getContentPane().add(btnRegresar);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Desinflamatorios.class.getResource("/Imag/Diseño sin título.png")));
+		lblNewLabel.setBounds(0, 0, 436, 263);
+		frameDesinfla.getContentPane().add(lblNewLabel);
 	}
 
 }

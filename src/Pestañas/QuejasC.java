@@ -15,6 +15,7 @@ import ClasesP.Quejas;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class QuejasC {
 
@@ -27,6 +28,7 @@ public class QuejasC {
 	private JTextField txtIDU;
 	private JButton btnAgregar;
 	private JButton btnRegresar;
+	private JLabel lblNewLabel_2;
 
 	/**
 	 * Launch the application.
@@ -56,68 +58,38 @@ public class QuejasC {
 	 */
 	private void initialize() {
 		frmQueja = new JFrame();
-		frmQueja.setBounds(100, 100, 318, 413);
+		frmQueja.setBounds(100, 100, 600, 689);
 		frmQueja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmQueja.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("IDQuejas");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel.setBounds(10, 23, 90, 19);
-		frmQueja.getContentPane().add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("Nombre");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(10, 61, 90, 14);
-		frmQueja.getContentPane().add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("Tipo");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_1.setBounds(10, 92, 90, 14);
-		frmQueja.getContentPane().add(lblNewLabel_1_1);
-		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Queja");
-		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_1_1.setBounds(10, 126, 90, 14);
-		frmQueja.getContentPane().add(lblNewLabel_1_1_1);
-		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("Fecha");
-		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_1_1_1.setBounds(10, 162, 90, 14);
-		frmQueja.getContentPane().add(lblNewLabel_1_1_1_1);
-		
-		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("IDUser");
-		lblNewLabel_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1_1_1_1_1.setBounds(10, 203, 90, 14);
-		frmQueja.getContentPane().add(lblNewLabel_1_1_1_1_1);
-		
 		txtIDQ = new JTextField();
-		txtIDQ.setBounds(128, 24, 86, 20);
+		txtIDQ.setBounds(309, 331, 143, 26);
 		frmQueja.getContentPane().add(txtIDQ);
 		txtIDQ.setColumns(10);
 		
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
-		txtNombre.setBounds(128, 60, 86, 20);
+		txtNombre.setBounds(309, 386, 143, 19);
 		frmQueja.getContentPane().add(txtNombre);
 		
 		txtTipo = new JTextField();
 		txtTipo.setColumns(10);
-		txtTipo.setBounds(128, 91, 86, 20);
+		txtTipo.setBounds(310, 445, 142, 26);
 		frmQueja.getContentPane().add(txtTipo);
 		
 		txtQueja = new JTextField();
 		txtQueja.setColumns(10);
-		txtQueja.setBounds(128, 122, 86, 20);
+		txtQueja.setBounds(311, 500, 141, 26);
 		frmQueja.getContentPane().add(txtQueja);
 		
 		txtFecha = new JTextField();
 		txtFecha.setColumns(10);
-		txtFecha.setBounds(128, 161, 86, 20);
+		txtFecha.setBounds(309, 556, 143, 31);
 		frmQueja.getContentPane().add(txtFecha);
 		
 		txtIDU = new JTextField();
 		txtIDU.setColumns(10);
-		txtIDU.setBounds(128, 202, 86, 20);
+		txtIDU.setBounds(309, 271, 143, 26);
 		frmQueja.getContentPane().add(txtIDU);
 		
 		btnAgregar = new JButton("Agregar");
@@ -143,7 +115,7 @@ public class QuejasC {
 				}
 			}
 		});
-		btnAgregar.setBounds(28, 265, 89, 23);
+		btnAgregar.setBounds(154, 597, 113, 45);
 		frmQueja.getContentPane().add(btnAgregar);
 		
 		btnRegresar = new JButton("Regresar");
@@ -152,8 +124,13 @@ public class QuejasC {
 				frmQueja.dispose();
 			}
 		});
-		btnRegresar.setBounds(154, 265, 89, 23);
+		btnRegresar.setBounds(364, 597, 102, 45);
 		frmQueja.getContentPane().add(btnRegresar);
+		
+		lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(QuejasC.class.getResource("/pixelfont/Añadir un subtítulo (1).png")));
+		lblNewLabel_2.setBounds(-47, -19, 680, 703);
+		frmQueja.getContentPane().add(lblNewLabel_2);
 	}
 	public void limpiar() {
 		txtFecha.setText("");
