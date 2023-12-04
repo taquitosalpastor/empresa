@@ -35,9 +35,10 @@ public class BarraDeCarga {
 	}
 
 	
-	public BarraDeCarga() {
+	public BarraDeCarga(String usuario) {
 		initialize();
 		Start();
+		Nombre=usuario;
 	}
 
 	public void Start() {

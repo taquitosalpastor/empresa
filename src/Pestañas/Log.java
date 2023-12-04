@@ -89,7 +89,8 @@ public class Log {
 					U.setContraseña((txtContraseña.getText()));
 					if(U.login()) {
 						JOptionPane.showMessageDialog(null, "BIENVENIDO");
-						BarraDeCarga BA=new BarraDeCarga();
+						String usuario=U.getNombre();
+						BarraDeCarga BA=new BarraDeCarga(usuario);
 						frame.setVisible(false);
 						BA.frmBarrraDeProgreso.setVisible(true);
 					}else {

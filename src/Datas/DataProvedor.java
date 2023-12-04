@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ClasesP.Provedor;
-import ClasesP.Usuario;
+
 
 public class DataProvedor {
 	Connection cx;

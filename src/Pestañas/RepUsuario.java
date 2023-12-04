@@ -162,7 +162,7 @@ public class RepUsuario {
         try {
                FileOutputStream archivo;
                
-               File file = new File("C:\\Users\\gusgu\\OneDrive\\Documentos\\empresa\\src\\PDFTU\\PDF.pdf");
+               File file = new File("C:\\Users\\gusgu\\OneDrive\\Imágenes\\empresa\\src\\PDFTU\\PDF.pdf");
                archivo = new FileOutputStream(file);
                Document doc = new Document();
                PdfWriter.getInstance(doc, archivo);
@@ -228,8 +228,7 @@ public class RepUsuario {
            }
    }
 	public ImageIcon cambiar(ImageIcon img, int ancho, int alto) {
-        java.awt.Image imgEscalada = img.getImage().getScaledInstance(ancho,
-                alto, java.awt.Image.SCALE_SMOOTH);
+        java.awt.Image imgEscalada = img.getImage().getScaledInstance(ancho,alto, java.awt.Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(imgEscalada);
         return image;
     }

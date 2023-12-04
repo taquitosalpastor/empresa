@@ -23,6 +23,7 @@ import java.awt.event.KeyEvent;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class AgregarUsuarios {
 
@@ -70,6 +71,7 @@ public class AgregarUsuarios {
 		frmAgregarUsuario.getContentPane().setLayout(null);
 		
 		txtId = new JTextField();
+		txtId.setBorder(null);
 		txtId.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -78,11 +80,12 @@ public class AgregarUsuarios {
 					}
 			}
 		});
-		txtId.setBounds(257, 190, 86, 20);
+		txtId.setBounds(243, 190, 118, 20);
 		frmAgregarUsuario.getContentPane().add(txtId);
 		txtId.setColumns(10);
 		
 		txtNom = new JTextField();
+		txtNom.setBorder(null);
 		txtNom.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -96,6 +99,7 @@ public class AgregarUsuarios {
 		frmAgregarUsuario.getContentPane().add(txtNom);
 		
 		txtContraseña = new JTextField();
+		txtContraseña.setBorder(null);
 		txtContraseña.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -109,6 +113,8 @@ public class AgregarUsuarios {
 		frmAgregarUsuario.getContentPane().add(txtContraseña);
 		
 		btnCargar = new JButton("");
+		btnCargar.setBackground(new Color(255, 255, 255));
+		btnCargar.setIcon(new ImageIcon(AgregarUsuarios.class.getResource("/pixelfont/cargando.png")));
 		btnCargar.setOpaque(false);
 		btnCargar.setBorder(null);
 		btnCargar.addActionListener(new ActionListener() {
@@ -135,6 +141,7 @@ public class AgregarUsuarios {
 		frmAgregarUsuario.getContentPane().add(btnCargar);
 		
 		btnInsertar = new JButton("");
+		btnInsertar.setBackground(new Color(255, 255, 255));
 		btnInsertar.setBorder(null);
 		btnInsertar.setOpaque(false);
 		btnInsertar.addActionListener(new ActionListener() {
@@ -160,6 +167,7 @@ public class AgregarUsuarios {
 		frmAgregarUsuario.getContentPane().add(btnInsertar);
 		
 		btnEliminar = new JButton("");
+		btnEliminar.setBackground(new Color(255, 255, 255));
 		btnEliminar.setBorder(null);
 		btnEliminar.setOpaque(false);
 		btnEliminar.addActionListener(new ActionListener() {
@@ -184,13 +192,15 @@ public class AgregarUsuarios {
 		
 		btnLimpiar = new JButton("");
 		btnLimpiar.setOpaque(false);
+		btnLimpiar.setBorderPainted(false);
+		btnLimpiar.setBackground(new Color(255, 255, 255));
 		btnLimpiar.setBorder(null);
 		btnLimpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				limpiar();
 			}
 		});
-		btnLimpiar.setBounds(301, 440, 161, 44);
+		btnLimpiar.setBounds(311, 440, 151, 44);
 		frmAgregarUsuario.getContentPane().add(btnLimpiar);
 		
 		lblNewLabel_1 = new JLabel("");
